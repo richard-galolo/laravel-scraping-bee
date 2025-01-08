@@ -7,6 +7,7 @@ This project provides an API to interact with TruePeopleSearch using Laravel. It
 - [Installation](#installation)
 - [Config](#config)
 - [API Endpoints](#api-endpoints)
+- [Postman Collection](#postman-collection)
 
 ## Installation
 1. Clone the repository:
@@ -51,7 +52,7 @@ This endpoint allows you to search for people using specific parameters. You can
 #### Request Example:
 
 ```bash
-GET {{base_url}}/api/v1/truepeoplesearch/results?name=Richard&city=Staten Island&state=NY
+GET {{base_url}}/api/v1/truepeoplesearch/results?name=richard garcia&city=San Diego&state=CA
 ```
 
 #### Response Example:
@@ -137,4 +138,11 @@ GET {{base_url}}api/v1/truepeoplesearch/results/px9lr9nr8nl86n0ru29nn
     }
 }
 ```
+
+#### Postman Collection
+
+You can download the Postman collection for testing the API endpoints by clicking the link below:
+
+[Download Postman Collection](https://github.com/richard-galolo/laravel-scraping-bee/blob/main/public/scraping-bee.postman_collection.json)
+
 
