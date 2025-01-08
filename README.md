@@ -1,66 +1,139 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TruePeopleSearch Laravel API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project provides an API to interact with TruePeopleSearch using Laravel. It leverages ScrapingBee to scrape the necessary data and return it in a clean JSON format. 
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Installation](#installation)
+- [Config](#config)
+- [API Endpoints](#api-endpoints)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/richard-galolo/laravel-scraping-bee.git
+cd laravel-scraping-bee
+```
+2. Install the dependencies:
+```bash
+composer install
+```
+3. Copy the environment file:
+```bash
+cp .env.example .env
+```
+4. Run the database migrations:
+```bash
+php artisan migrate
+```
+5. Start the development server:
+```bash
+php artisan serve
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Config
+To interact with ScrapingBee API, you need to set your SCRAPINGBEE_API_KEY in the .env file. This key is required to authenticate requests to ScrapingBee's service.
+```bash
+SCRAPINGBEE_API_KEY="${YOUR_SCRAPINGBEE_API_KEY}"
+```
+You can get your API key by signing up for an account at [ScrapingBee](https://www.scrapingbee.com/).
 
-## Learning Laravel
+## API Endpoints
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### `GET /api/v1/truepeoplesearch/results`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+This endpoint allows you to search for people using specific parameters. You can provide the following parameters in the query string:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- `name` (required): Name of the person you want to search for.
+- `city` (optional): The city of the person.
+- `state` (optional): The state of the person.
 
-## Laravel Sponsors
+#### Request Example:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+GET {{base_url}}/api/v1/truepeoplesearch/results?name=Richard&city=Staten Island&state=NY
+```
 
-### Premium Partners
+#### Response Example:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+{
+    "success": true,
+    "message": "Search results retrieved successfully.",
+    "data": [
+        {
+            "name": "Richard",
+            "age": "66",
+            "lives_in": "Staten Island, NY",
+            "used_to_live_in": "Dunedin FL, Glens Falls NY, Clearwate...",
+            "related_to": "Janice A Beals, Adam M Collins, Brian...",
+            "detail_link": "/find/person/px9lr9nr8nl86n0ru29nn",
+            "profile_id": "px9lr9nr8nl86n0ru29nn"
+        },
+        {
+            "name": "Richard",
+            "age": "71",
+            "lives_in": "Surfside, FL",
+            "used_to_live_in": "North Miami Beach FL, Surfside FL, Mi...",
+            "related_to": "Amber D Clarvit, Candace Lepczyk Jean...",
+            "detail_link": "/find/person/px8u80rln290u04l80ur6",
+            "profile_id": "px8u80rln290u04l80ur6"
+        },
+}
+```
 
-## Contributing
+### `GET /api/v1/truepeoplesearch/results/{profileId}`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+This endpoint allows you to fetch the detailed profile information of a person using their profile ID.
 
-## Code of Conduct
+#### Request Example:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+GET {{base_url}}api/v1/truepeoplesearch/results/px9lr9nr8nl86n0ru29nn
+```
 
-## Security Vulnerabilities
+#### Response Example:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+{
+    "success": true,
+    "message": "Profile details retrieved successfully.",
+    "data": {
+        "name": "Richard",
+        "age": "Age 66, Born June 1958",
+        "lives_in": "Lives in Staten Island, NY",
+        "phone": "(718) 273-2709",
+        "full_background_report": {
+            "details": [
+                "Arrest & Criminal Records",
+                "Misdemeanors & Felonies",
+                "Registered Sex Offender Check",
+                "Warrants & Police Records",
+                "Nationwide Court Records",
+                "Evictions & Foreclosures",
+                "Arrest Records",
+                "Court Records",
+                "Marriage & Divorce Records",
+                "Birth & Death Records",
+                "Police Records",
+                "Search Warrants",
+                "Criminal Records Data",
+                "Property Records",
+                "Arrest & Criminal Records",
+                "Misdemeanors & Felonies",
+                "Registered Sex Offender Check",
+                "Arrest Records",
+                "Court Records",
+                "Marriage & Divorce Records",
+                "Birth & Death Records",
+                "Police Records",
+                "Search Warrants",
+                "Criminal Records Data",
+                "Property Records"
+            ],
+            "link": "/send?pid=1&tc=detail-top-pf&isfinal=1&related=https%3a%2f%2fwww.peoplefinders.com%2fcheckout%2fbackground-check%3fproductMenuName%3dsearch-name-background%26productOfferId%3dPremium-Membership-3-Day-Trial%26utm_source%3dtps%26utm_campaign%3dpf_topbutton_details_bgtrialcheckout%26id%3dG-9139738718670352977%26firstName%3d%26lastName%3dRichard"
+        }
+    }
+}
+```
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
