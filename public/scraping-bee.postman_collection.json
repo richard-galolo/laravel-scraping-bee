@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "6d077807-f7ca-4372-9876-7ce97154b2e4",
+		"name": "Scraping-Bee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25564232"
+	},
+	"item": [
+		{
+			"name": "True People Search",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Search List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/truepeoplesearch/results?name=richard garcia&city=San Diego&state=CA",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"truepeoplesearch",
+										"results"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "richard garcia",
+											"description": "required"
+										},
+										{
+											"key": "city",
+											"value": "San Diego",
+											"description": "nullable"
+										},
+										{
+											"key": "state",
+											"value": "CA",
+											"description": "nullable"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search List Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/truepeoplesearch/results?name=richard&city=San Diego&state=CA",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"truepeoplesearch",
+												"results"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "richard",
+													"description": "required"
+												},
+												{
+													"key": "city",
+													"value": "San Diego",
+													"description": "nullable"
+												},
+												{
+													"key": "state",
+													"value": "CA",
+													"description": "nullable"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.14"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 08 Jan 2025 17:50:12 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Search results retrieved successfully.\",\n    \"data\": [\n        {\n            \"name\": \"Richard\",\n            \"age\": \"66\",\n            \"lives_in\": \"Staten Island, NY\",\n            \"used_to_live_in\": \"Dunedin FL, Glens Falls NY, Clearwate...\",\n            \"related_to\": \"Janice A Beals, Adam M Collins, Brian...\",\n            \"detail_link\": \"/find/person/px9lr9nr8nl86n0ru29nn\",\n            \"profile_id\": \"px9lr9nr8nl86n0ru29nn\"\n        },\n        {\n            \"name\": \"Richard\",\n            \"age\": \"71\",\n            \"lives_in\": \"Surfside, FL\",\n            \"used_to_live_in\": \"North Miami Beach FL, Surfside FL, Mi...\",\n            \"related_to\": \"Amber D Clarvit, Candace Lepczyk Jean...\",\n            \"detail_link\": \"/find/person/px8u80rln290u04l80ur6\",\n            \"profile_id\": \"px8u80rln290u04l80ur6\"\n        },\n        {\n            \"name\": \"Richard\",\n            \"age\": \"77\",\n            \"lives_in\": \"Daytona Beach, FL\",\n            \"used_to_live_in\": \"Allison Park PA, Ormond Beach FL, Ply...\",\n            \"related_to\": \"Ashley Mariah Adams, Carol J Adams, D...\",\n            \"detail_link\": \"/find/person/px8r9l828098l90u9064r\",\n            \"profile_id\": \"px8r9l828098l90u9064r\"\n        },\n        {\n            \"name\": \"Richard\",\n            \"age\": \"54\",\n            \"lives_in\": \"Rosanky, TX\",\n            \"used_to_live_in\": \"Bastrop TX, Canyon Lake TX, Round Roc...\",\n            \"related_to\": \"Deborah Ann Cox, Courtney Nicole Cox,...\",\n            \"detail_link\": \"/find/person/px828n4r0ru922n0u4429\",\n            \"profile_id\": \"px828n4r0ru922n0u4429\"\n        },\n        {\n            \"name\": \"Richard\",\n            \"age\": \"101\",\n            \"lives_in\": \"Lakewood, OH\",\n            \"used_to_live_in\": \"Aurora OH, Twinsburg OH, Lakewood OH,...\",\n            \"related_to\": \"Joseph J Cassidy, Katherine M Cassidy...\",\n            \"detail_link\": \"/find/person/px8n849rl6u602r0nlur4\",\n            \"profile_id\": \"px8n849rl6u602r0nlur4\"\n        },\n        {\n            \"name\": \"Kimberly A Richard\",\n            \"age\": \"58\",\n            \"lives_in\": \"Evans, CO\",\n            \"used_to_live_in\": \"Greeley CO, Evans CO, Aurora CO, Salt...\",\n            \"related_to\": \"Garry Sean Richard, Andrew Thurston R...\",\n            \"detail_link\": \"/find/person/px826l6uu9ul4l0n6268r\",\n            \"profile_id\": \"px826l6uu9ul4l0n6268r\"\n        },\n        {\n            \"name\": \"Richard Richard\",\n            \"age\": \"64\",\n            \"lives_in\": \"Lorain, OH\",\n            \"used_to_live_in\": \"Lorain OH, Amherst OH, Englewood FL, ...\",\n            \"related_to\": \"Amy M Wheatley, Benjamin Scott Wheatl...\",\n            \"detail_link\": \"/find/person/px9l9ru84209n4948r20l\",\n            \"profile_id\": \"px9l9ru84209n4948r20l\"\n        },\n        {\n            \"name\": \"Richard W Richard\",\n            \"age\": \"53\",\n            \"lives_in\": \"Monroe, WI\",\n            \"used_to_live_in\": \"Muscoda WI, Monroe WI, Stoughton WI, ...\",\n            \"related_to\": \"Brenda J Breault, Brenden Allan Breau...\",\n            \"detail_link\": \"/find/person/px86u8nu4989406n4l4u4\",\n            \"profile_id\": \"px86u8nu4989406n4l4u4\"\n        },\n        {\n            \"name\": \"Richard Richard\",\n            \"age\": \"70\",\n            \"lives_in\": \"Reno, NV\",\n            \"used_to_live_in\": \"Reno NV, St George UT, Saint George U...\",\n            \"related_to\": \"Saundra J Saling, Anthony B Saling, J...\",\n            \"detail_link\": \"/find/person/px88rl24l20nnl98ll8l8\",\n            \"profile_id\": \"px88rl24l20nnl98ll8l8\"\n        },\n        {\n            \"name\": \"Richard\",\n            \"age\": \"66\",\n            \"lives_in\": \"Staten Island, NY\",\n            \"used_to_live_in\": \"Dunedin FL, Glens Falls NY, Clearwate...\",\n            \"related_to\": \"Janice A Beals, Adam M Collins, Brian...\",\n            \"detail_link\": \"/find/person/p1144gfruekc4fkry39odjfgu\",\n            \"profile_id\": \"p1144gfruekc4fkry39odjfgu\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Show Person Detail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/truepeoplesearch/results/px9lr9nr8nl86n0ru29nn",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"truepeoplesearch",
+										"results",
+										"px9lr9nr8nl86n0ru29nn"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Show Person Detail Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/v1/truepeoplesearch/results/px9lr9nr8nl86n0ru29nn",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"truepeoplesearch",
+												"results",
+												"px9lr9nr8nl86n0ru29nn"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.14"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 08 Jan 2025 17:50:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Profile details retrieved successfully.\",\n    \"data\": {\n        \"name\": \"Richard\",\n        \"age\": \"Age 66, Born June 1958\",\n        \"lives_in\": \"Lives in Staten Island, NY\",\n        \"phone\": \"(718) 273-2709\",\n        \"full_background_report\": {\n            \"details\": [\n                \"Arrest & Criminal Records\",\n                \"Misdemeanors & Felonies\",\n                \"Registered Sex Offender Check\",\n                \"Warrants & Police Records\",\n                \"Nationwide Court Records\",\n                \"Evictions & Foreclosures\",\n                \"Arrest Records\",\n                \"Court Records\",\n                \"Marriage & Divorce Records\",\n                \"Birth & Death Records\",\n                \"Police Records\",\n                \"Search Warrants\",\n                \"Criminal Records Data\",\n                \"Property Records\",\n                \"Arrest & Criminal Records\",\n                \"Misdemeanors & Felonies\",\n                \"Registered Sex Offender Check\",\n                \"Arrest Records\",\n                \"Court Records\",\n                \"Marriage & Divorce Records\",\n                \"Birth & Death Records\",\n                \"Police Records\",\n                \"Search Warrants\",\n                \"Criminal Records Data\",\n                \"Property Records\"\n            ],\n            \"link\": \"/send?pid=1&tc=detail-top-pf&isfinal=1&related=https%3a%2f%2fwww.peoplefinders.com%2fcheckout%2fbackground-check%3fproductMenuName%3dsearch-name-background%26productOfferId%3dPremium-Membership-3-Day-Trial%26utm_source%3dtps%26utm_campaign%3dpf_topbutton_details_bgtrialcheckout%26id%3dG-9139738718670352977%26firstName%3d%26lastName%3dRichard\"\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8001",
+			"type": "string"
+		}
+	]
+}
