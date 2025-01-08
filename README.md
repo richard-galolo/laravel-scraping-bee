@@ -78,7 +78,8 @@ GET {{base_url}}/api/v1/truepeoplesearch/results?name=Richard&city=Staten Island
             "related_to": "Amber D Clarvit, Candace Lepczyk Jean...",
             "detail_link": "/find/person/px8u80rln290u04l80ur6",
             "profile_id": "px8u80rln290u04l80ur6"
-        },
+        }
+    ]
 }
 ```
 
