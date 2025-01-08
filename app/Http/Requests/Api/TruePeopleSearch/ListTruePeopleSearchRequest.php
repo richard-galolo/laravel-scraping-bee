@@ -25,6 +25,19 @@ class ListTruePeopleSearchRequest extends FormRequest
             'name' => ['required', 'string'],
             'city' => ['nullable', 'string'],
             'state' => ['nullable', 'string'],
+            'citystatezip' => ['nullable'],
         ];
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation()
+    {
+        if ($this->has(['city', 'state'])) {
+            $this->merge([
+                'citystatezip' => $this->city . ', ' . $this->state,
+            ]);
+        }
     }
 }

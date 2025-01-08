@@ -21,7 +21,14 @@ class TruePeopleSearchApiController extends Controller
     public function index(ListTruePeopleSearchRequest $request)
     {
         try {
-            $searchUrl = $this->truePeopleSearchService->base_url . '/results?' . http_build_query($request->validated());
+            $queryString = str_replace(
+                ['+', '%2C'],
+                ['%20', ','],
+                http_build_query($request->only('name', 'citystatezip'))
+            );
+
+            $searchUrl = $this->truePeopleSearchService->base_url . '/results?' . $queryString;
+
             $options = [
                 'stealth_proxy' => true,
                 'country_code' => 'us',
